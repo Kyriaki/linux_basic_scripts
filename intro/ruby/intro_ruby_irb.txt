@@ -1,0 +1,103 @@
+[kyri@kyriCent bin]$ irb
+irb(main):001:0> "Hello World"
+=> "Hello World"
+irb(main):002:0> puts "Hello World"
+Hello World
+=> nil
+irb(main):003:0> 3+2 + 3*2 + 3**2
+=> 20
+irb(main):004:0> a = 3
+=> 3
+irb(main):005:0> b = Math.sqrt(9)
+=> 3.0
+irb(main):006:0> a-b
+=> 0.0
+irb(main):007:0> def h
+irb(main):008:1> puts "H^C
+irb(main):008:0> def h(name)
+irb(main):009:1> puts "Hello #{name}!"
+irb(main):010:1> end
+=> nil
+irb(main):011:0> h("Kyri")
+Hello Kyri!
+=> nil
+irb(main):012:0> class Greeter
+irb(main):013:1> def initialize(name="Master")
+irb(main):014:2> @name = name
+irb(main):015:2> end
+irb(main):016:1> def greet
+irb(main):017:2> puts "Good morning, #{name}. Shall I make you some tea?"
+irb(main):018:2> end
+irb(main):019:1> def byebye
+irb(main):020:2> puts "You're leaving, #{@name}^C
+irb(main):020:0> class Greeter
+irb(main):021:1> ^C
+irb(main):021:0> class Maid
+irb(main):022:1> def initialize(name="Master")
+irb(main):023:2> @name = name
+irb(main):024:2> end
+irb(main):025:1> def greet
+irb(main):026:2> puts "Good morning, #{name}. Shall I make you some tea?"
+irb(main):027:2> end
+irb(main):028:1> def byebye^C
+irb(main):028:0> class Maid
+irb(main):029:1> def initialize(name = "Master")
+irb(main):030:2> @name = name
+irb(main):031:2> end
+irb(main):032:1> def greet
+irb(main):033:2> puts "Good morning, #{@name}. Shall I make you some tea?"
+irb(main):034:2> end
+irb(main):035:1> def byebye
+irb(main):036:2> puts "You're leaving already, #{@name}? I'll take good care of the place. See you soon."
+irb(main):037:2> end
+irb(main):038:1> end
+=> nil
+irb(main):039:0> rem = Maid.new()
+=> #<Maid:0xb76b57d0 @name="Master">
+irb(main):040:0> rem.greet
+Good morning, Master. Shall I make you some tea?
+=> nil
+irb(main):041:0> rem.byebye
+You're leaving already, Master? I'll take good care of the place. See you soon.
+=> nil
+irb(main):042:0> Maid.instance_methods
+=> ["inspect", "tap", "clone", "greet", "public_methods", "__send__", "object_id", "instance_variable_defined?", "equal?", "freeze", "extend", "send", "methods", "hash", "byebye", "dup", "to_enum", "instance_variables", "eql?", "instance_eval", "id", "singleton_methods", "taint", "enum_for", "frozen?", "instance_variable_get", "instance_of?", "display", "to_a", "method", "type", "h", "instance_exec", "protected_methods", "==", "===", "instance_variable_set", "kind_of?", "respond_to?", "to_s", "class", "__id__", "tainted?", "=~", "private_methods", "untaint", "nil?", "is_a?"]
+irb(main):043:0> Maid.instance_methods(false)
+=> ["greet", "byebye"]
+irb(main):044:0> rem.respond_to?(name)
+NameError: undefined local variable or method `name' for main:Object
+	from (irb):44
+	from :0
+irb(main):045:0> rem.respond_to?("name")
+=> false
+irb(main):046:0> class Maid
+irb(main):047:1> attr_accessor: name
+irb(main):048:1> end
+SyntaxError: compile error
+(irb):47: syntax error, unexpected ':', expecting kEND
+attr_accessor: name
+              ^
+	from (irb):48
+	from :0
+irb(main):049:0> class Maid
+irb(main):050:1> attr_accessor :name
+irb(main):051:1> end
+=> nil
+irb(main):052:0> rem.respond_to?("name")
+=> true
+irb(main):053:0> rem.name
+=> "Master"
+irb(main):054:0> rem.@name
+SyntaxError: compile error
+(irb):54: syntax error, unexpected tIVAR
+	from (irb):54
+	from :0
+irb(main):055:0> rem.name = "Ram"
+=> "Ram"
+irb(main):056:0> rem.greet
+Good morning, Ram. Shall I make you some tea?
+=> nil
+irb(main):057:0> rem.byebye
+You're leaving already, Ram? I'll take good care of the place. See you soon.
+=> nil
+irb(main):058:0> 
